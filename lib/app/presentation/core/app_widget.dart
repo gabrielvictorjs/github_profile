@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'routes/routes.dart';
+import 'theme/app_theme.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -8,10 +9,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: 'Github Profile',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: theme,
       routes: AppRoutes.all,
     );
   }
