@@ -5,7 +5,7 @@ class RepoEntity extends Equatable {
   final String description;
   final int stars;
   final String language;
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
 
   RepoEntity({
     required this.name,
@@ -16,7 +16,7 @@ class RepoEntity extends Equatable {
   });
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       name,
       description,
