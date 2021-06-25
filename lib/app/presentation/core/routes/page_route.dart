@@ -11,6 +11,14 @@ class PageRoute<ArgType> {
   }) {
     return Navigator.of(context).pushNamed(path, arguments: arguments);
   }
+
+  Future<T?> pushReplacement<T extends Object?>(
+    BuildContext context, {
+    required ArgType arguments,
+  }) {
+    return Navigator.of(context)
+        .pushReplacementNamed(path, arguments: arguments);
+  }
 }
 
 class NoArgs {

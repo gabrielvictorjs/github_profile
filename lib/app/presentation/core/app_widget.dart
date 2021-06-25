@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
       title: 'Github Profile',
       debugShowCheckedModeBanner: false,
       theme: theme,
-      routes: AppRoutes.all,
+      routes: AppRoutes.builders,
     );
   }
 }
