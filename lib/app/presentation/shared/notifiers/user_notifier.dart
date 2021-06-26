@@ -6,12 +6,15 @@ import '../../../domain/repositories/user_repository.dart';
 import '../../../infrastructure/repositories/user_repository_impl.dart';
 import '../../core/common_state/common_state.dart';
 
-final userNotifierProviderTo =
+typedef UserState = CommonState<GithubFailure, UserEntity>;
+
+typedef UserNotifierProvider
+    = AutoDisposeStateNotifierProvider<UserNotifier, UserState>;
+
+final userNotifierProviderFamily =
     StateNotifierProvider.family.autoDispose<UserNotifier, UserState, String>(
   (ref, id) => UserNotifier(ref.read(userRepositoryProvider)),
 );
-
-typedef UserState = CommonState<GithubFailure, UserEntity>;
 
 class UserNotifier extends StateNotifier<UserState> {
   final UserRepository _repository;

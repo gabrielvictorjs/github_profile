@@ -10,7 +10,8 @@ import '../../shared/widgets/loading_widget.dart';
 import 'widgets/search_input_widget.dart';
 
 class SearchUserPage extends HookWidget {
-  final userNotifierProvider = userNotifierProviderTo(UniqueKey().toString());
+  final userNotifierProvider =
+      userNotifierProviderFamily(UniqueKey().toString());
 
   SearchUserPage({Key? key}) : super(key: key);
 
