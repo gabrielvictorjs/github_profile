@@ -28,6 +28,7 @@ class SearchInputWidget extends HookWidget {
         ),
         alignment: Alignment.center,
         child: TextField(
+          autocorrect: false,
           focusNode: focusNode,
           controller: controller,
           cursorColor: Theme.of(context).primaryColor,
