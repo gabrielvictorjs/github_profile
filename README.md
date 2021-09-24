@@ -1,8 +1,10 @@
 # 🌐 Github Profile
 
-<img src="demo/demo-1.png" width="200" height="400">
-<img src="demo/demo-2.png" width="200" height="400">
-<img src="demo/demo-3.png" width="200" height="400">
+<div>
+  <img src="demo/demo-1.png" width="200" height="400">
+  <img src="demo/demo-2.png" width="200" height="400">
+  <img src="demo/demo-3.png" width="200" height="400">
+</div>
 
 ## 📲 Getting Started
 
