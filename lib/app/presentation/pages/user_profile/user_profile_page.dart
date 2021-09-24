@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../core/routes/args/repo_contributors_args.dart';
 import '../../core/routes/args/user_profile_args.dart';
+import '../../core/routes/routes.dart';
 import '../../shared/notifiers/user_notifier.dart';
 import '../../shared/widgets/loading_widget.dart';
 import '../../utils/app_pipes.dart';
@@ -22,14 +24,15 @@ class UserProfilePage extends HookWidget {
     Key? key,
     required this.args,
   }) : super(key: key) {
+    final uniqueKey = UniqueKey().toString();
     nick = args.nickOrUser.fold(
       (nick) => nick,
       (user) => user.nick,
     );
 
-    userNotifierProvider = userNotifierProviderFamily(nick);
-    reposNotifierProvider = reposNotifierProviderFamily(nick);
-    profileLoadingStateProvider = profileLoadingStateProviderFamily(nick);
+    userNotifierProvider = userNotifierProviderFamily(uniqueKey);
+    reposNotifierProvider = reposNotifierProviderFamily(uniqueKey);
+    profileLoadingStateProvider = profileLoadingStateProviderFamily(uniqueKey);
   }
 
   @override
@@ -103,7 +106,15 @@ class UserProfilePage extends HookWidget {
                 (_, index) {
                   final repo = repos[index];
                   return RepoItemWidget(
-                    onTap: () {},
+                    onTap: () {
+                      AppRoutes.repoContributors.push(
+                        context,
+                        arguments: RepoContributorsArgs(
+                          ownerNick: nick,
+                          repo: repo.name,
+                        ),
+                      );
+                    },
                     stars: repo.stars,
                     name: repo.name,
                     lastUpdate: AppPipes.formatDateTime(repo.updatedAt),
